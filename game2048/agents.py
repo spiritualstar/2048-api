@@ -2,13 +2,8 @@ import numpy as np
 import keras
 from keras.models import load_model
 
-model1=load_model('2048_new2_2048.h5')
-#my_model32=load_model('2048_32_1.h5')
-#my_model64=load_model('2048_64_1.h5')
-#my_model128=load_model('2048_128.h5')
-#my_model256=load_model('2048_256.h5')
-#my_model512=load_model('2048_512.h5')
-#my_model1024=load_model('2048_1024.h5')
+model1=load_model('2048_new2_2048_1011.h5')
+
 class Agent:
     '''Agent Base.'''
 
@@ -65,10 +60,12 @@ class MyOwnAgent(Agent):
         x=x_train
         x=np.log2(x+1)
         x=np.trunc(x)
-        x = keras.utils.to_categorical(x,12)
+        x = keras.utils.to_categorical(x, 12)
         x = x.reshape(1, 4, 4, 12)
         pred=model1.predict(x,batch_size=128)
         r=pred[0]
         r1=r.tolist()
         direction2=r1.index(max(r1))
+       
+        
         return direction2            
