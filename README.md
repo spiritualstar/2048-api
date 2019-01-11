@@ -12,6 +12,8 @@
 ```
 # 2048_new2_2048_1011.h5
 一个最好的keras模型，该模型最高可达到平均分1011（跑50次）
+# MyOwnagent_cif.cif
+用自己的agent跑的gif视频结果，差一点跑到2048
 # 2048-api
 A 2048 game api for training supervised learning (imitation learning) or reinforcement learning agents
 
