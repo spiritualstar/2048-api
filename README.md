@@ -1,3 +1,17 @@
+# learning.py
+```
+用来学习的程序
+首先用keras建立一个有六个卷积层，3个全连层的模型，然后用这个模型展开训练。
+  首先用强Agent跑10次游戏，将跑出来的棋盘和方向保存起来，作为训练的数据。
+其中，棋盘和方向均采用one_hot编码。利用train_on_batch进行训练，得到一个初始模型。
+  然后建立一个大循环，不断地用训练出来地模型跑新的棋盘，然后再用这些棋盘来训练新的模型，即所谓地online。
+循环采用while，每次跑50次棋盘，当50次里面跑到48次2048，则退出循环，程序结束。
+  循环中训练时，棋盘下一步的方向由新跑出来的模型给出，但用来训练的方向则由强agent给出。
+同样对棋盘和方向进行one_hot编码，使用train_on_batch训练。
+具体过程可参考代码learning.py，里面有详细注释。
+```
+# 2048_new2_2048_1011.h5
+一个最好的keras模型，该模型最高可达到平均分1011（跑50次）
 # 2048-api
 A 2048 game api for training supervised learning (imitation learning) or reinforcement learning agents
 
